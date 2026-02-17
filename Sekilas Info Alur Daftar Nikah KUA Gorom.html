@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alur & Biaya Nikah di Balai vs Luar Balai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .step-card {
+            transition: all 0.4s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .step-card:hover {
+            border-left-color: #059669;
+            background: #f0fdf4;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+        }
+        
+        .balai-card {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 2px solid #3b82f6;
+        }
+        
+        .luar-balai-card {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            border: 2px solid #ec4899;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .free-tag {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        }
+        
+        .paid-tag {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .comparison-table th {
+            background: #059669;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f0fdf4;
+        }
+        
+        .balai-row {
+            background: #eff6ff !important;
+        }
+        
+        .luar-balai-row {
+            background: #fdf2f8 !important;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-left: 5px solid #0ea5e9;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-left: 5px solid #ef4444;
+        }
+        
+        @media print {
+            body { background: white; }
+            .no-print { display: none; }
+            .card { border: 1px solid #e5e7eb; page-break-inside: avoid; }
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #059669 0%, #10b981 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+                <i class="fas fa-mosque text-4xl text-green-600"></i>
+            </div>
+            
+            <div class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+                INFOGRAFIS KUA PULAU GOROM
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                Alur & Biaya Pendaftaran Nikah
+            </h1>
+            <p class="text-xl text-gray-600 mb-2">Nikah di Balai Nikah vs Luar Balai Nikah</p>
+            <p class="text-gray-500">Berdasarkan PMA No. 20 Tahun 2019</p>
+        </header>
+
+        <!-- Ringkasan Perbedaan Utama -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <!-- Balai Nikah -->
+            <div class="balai-card rounded-2xl p-6 shadow-lg card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-building text-2xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-800">Di Balai Nikah</h2>
+                            <p class="text-sm text-blue-600">KUA/Balai Nikah</p>
+                        </div>
+                    </div>
+                    <span class="price-tag free-tag">GRATIS</span>
+                </div>
+                
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span>Tempat: Ruang KUA/Balai Nikah</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span>Penghulu: Pegawai KUA</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span>Biaya: GRATIS (Tanpa biaya sewa)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span>Kapasitas: Terbatas</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span>Fasilitas: Standar KUA</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Luar Balai Nikah -->
+            <div class="luar-balai-card rounded-2xl p-6 shadow-lg card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-home text-2xl text-pink-600"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-pink-800">Luar Balai Nikah</h2>
+                            <p class="text-sm text-pink-600">Rumah/Hotel/Gedung</p>
+                        </div>
+                    </div>
+                    <span class="price-tag paid-tag">Rp 600.000</span>
+                </div>
+                
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-pink-500"></i>
+                        <span>Tempat: Rumah, hotel, gedung, dll</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-pink-500"></i>
+                        <span>Penghulu: Pegawai KUA (dinas luar)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-pink-500"></i>
+                        <span>Biaya: Rp 600.000 (PNBP)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-pink-500"></i>
+                        <span>Kapasitas: Sesuai tempat dipilih</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-pink-500"></i>
+                        <span>Fasilitas: Sesuai tempat acara</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Alur Pendaftaran -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-route text-green-600 mr-3"></i>
+                Alur Pendaftaran Nikah
+            </h2>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+
+                <!-- Step 1 -->
+                <div class="step-card bg-gray-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        1
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        1
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pendaftaran di KUA</h3>
+                    <p class="text-gray-600 text-sm mb-3">Datang ke KUA domisili calon istri dengan membawa dokumen lengkap.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Balai: GRATIS</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Luar: GRATIS</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card bg-gray-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        2
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        2
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pemeriksaan Berkas</h3>
+                    <p class="text-gray-600 text-sm mb-3">Petugas memverifikasi kelengkapan dokumen dan data keabsahan.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Balai: GRATIS</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Luar: GRATIS</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card bg-gray-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        3
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        3
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pemeriksaan Kesehatan</h3>
+                    <p class="text-gray-600 text-sm mb-3">Tes kesehatan di Puskesmas/klinik (HIV, Hepatitis, TB, dll).</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Balai: GRATIS di Puskesmas</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Luar: GRATIS di Puskesmas</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card bg-gray-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        4
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        4
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Penentuan Jadwal & Tempat</h3>
+                    <p class="text-gray-600 text-sm mb-3">Pilih jadwal dan tentukan lokasi akad: di KUA atau di luar KUA.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                        <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                            <p class="font-semibold text-blue-800 text-sm mb-1">Pilihan Balai Nikah:</p>
+                            <ul class="text-xs text-blue-700 space-y-1">
+                                <li>• KUA setempat</li>
+                                <li>• Masjid/Mushola di KUA</li>
+                                <li>• Balai Nikah KUA</li>
+                            </ul>
+                        </div>
+                        <div class="bg-pink-50 p-3 rounded-lg border border-pink-200">
+                            <p class="font-semibold text-pink-800 text-sm mb-1">Pilihan Luar Balai:</p>
+                            <ul class="text-xs text-pink-700 space-y-1">
+                                <li>• Rumah pribadi</li>
+                                <li>• Hotel/Gedung pertemuan</li>
+                                <li>• Masjid besar</li>
+                                <li>• Tempat lain di wilayah KUA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card bg-gray-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        5
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        5
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pembayaran PNBP (jika di luar balai)</h3>
+                    <p class="text-gray-600 text-sm mb-3">Untuk nikah di luar balai, bayar PNBP Rp 600.000 ke kas negara.</p>
+                    <div class="highlight-box rounded-lg p-3 mt-2">
+                        <p class="text-sm text-amber-800">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            <strong>Penting:</strong> Pastikan Validasi Pembayaran Di Simkah.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card bg-green-50 rounded-xl p-5 mb-4 relative ml-0 md:ml-20 border-2 border-green-500">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        6
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        6
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pelaksanaan Akad Nikah</h3>
+                    <p class="text-gray-600 text-sm mb-3">Akad dilaksanakan sesuai jadwal dengan penghulu dan 2 saksi.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Semua Jenis: GRATIS</span>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="step-card bg-green-50 rounded-xl p-5 relative ml-0 md:ml-20 border-2 border-green-500">
+                    <div class="hidden md:flex absolute -left-14 top-5 step-number w-10 h-10 rounded-full items-center justify-center text-white font-bold">
+                        7
+                    </div>
+                    <div class="md:hidden step-number w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                        7
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Penyerahan Buku Nikah</h3>
+                    <p class="text-gray-600 text-sm mb-3">Buku nikah (2 eksemplar) diterima langsung setelah akad selesai.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Semua Jenis: GRATIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rincian Biaya Detail -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-calculator text-green-600 mr-3"></i>
+                Rincian Biaya Lengkap
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full comparison-table rounded-lg overflow-hidden text-sm">
+                    <thead>
+                        <tr>
+                            <th class="p-4 text-left">Jenis Biaya</th>
+                            <th class="p-4 text-center w-1/4">Di Balai Nikah</th>
+                            <th class="p-4 text-center w-1/4">Luar Balai Nikah</th>
+                            <th class="p-4 text-left">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b balai-row">
+                            <td class="p-4 font-semibold">Pendaftaran</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-gray-600">Sesuai UU No. 16/2019</td>
+                        </tr>
+                        <tr class="border-b luar-balai-row">
+                            <td class="p-4 font-semibold">PNBP Nikah Luar Balai</td>
+                            <td class="p-4 text-center"><span class="text-gray-400">-</span></td>
+                            <td class="p-4 text-center"><span class="price-tag paid-tag">Rp 600.000</span></td>
+                            <td class="p-4 text-gray-600">Penghulu dinas luar (PP No. 47/2018)</td>
+                        </tr>
+                        <tr class="border-b balai-row">
+                            <td class="p-4 font-semibold">Buku Nikah</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-gray-600">2 eksemplar (suami & istri)</td>
+                        </tr>
+                        <tr class="border-b luar-balai-row">
+                            <td class="p-4 font-semibold">Surat Keterangan/Rekom/Ikrar Taukil</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-gray-600">Untuk pengurusan dokumen lain</td>
+                        </tr>
+                        <tr class="border-b balai-row">
+                            <td class="p-4 font-semibold">Akta Nikah</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span></td>
+                            <td class="p-4 text-gray-600">Arsip resmi KUA</td>
+                        </tr>
+                        <tr class="border-b luar-balai-row">
+                            <td class="p-4 font-semibold">Pemeriksaan Kesehatan</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span> di Puskesmas</td>
+                            <td class="p-4 text-center"><span class="price-tag free-tag">GRATIS</span> di Puskesmas</td>
+                            <td class="p-4 text-gray-600">Berbayar jika di klinik swasta (Rp 150.000-300.000)</td>
+                        </tr>
+                        <tr class="border-b balai-row">
+                            <td class="p-4 font-semibold">Transportasi Penghulu</td>
+                            <td class="p-4 text-center"><span class="text-gray-400">-</span></td>
+                            <td class="p-4 text-center"><span class="text-gray-400">-</span></td>
+                            <td class="p-4 text-gray-600">Sudah termasuk dalam PNBP Rp 600.000</td>
+                        </tr>
+                        <tr class="border-b luar-balai-row">
+                            <td class="p-4 font-semibold">Sewa Tempat</td>
+                            <td class="p-4 text-center"><span class="text-gray-400">-</span></td>
+                            <td class="p-4 text-center"><span class="text-gray-600">Variabel</span></td>
+                            <td class="p-4 text-gray-600">Tidak termasuk, ditanggung pengantin</td>
+                        </tr>
+                        <tr class="balai-row">
+                                                </tbody>
+                    <tfoot>
+                        <tr class="bg-gray-100 font-bold">
+                            <td class="p-4">TOTAL BIAYA RESMI</td>
+<td class="p-4 text-center"><span class="text-gray-400">-</span></td>
+
+                                                        <td class="p-4 text-center text-green-600">Rp 600.000</td>
+                            <td class="p-4 text-gray-600">Belum termasuk sewa tempat & katering</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="mt-6 warning-box rounded-xl p-4">
+                <h4 class="font-bold text-red-800 mb-2 flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Waspada Pungutan Liar!
+                </h4>
+                <p class="text-red-700 text-sm">
+                    Jika ada oknum yang meminta biaya tambahan di luar tabel di atas (sewa ruang KUA, biaya koordinator, dll), 
+                    itu adalah <strong>PUNGUTAN LIAR</strong>. Segera laporkan ke <strong>152</strong> atau <strong>wbs.kemenag.go.id</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Persyaratan Dokumen -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-file-alt text-green-600 mr-3"></i>
+                Persyaratan Dokumen (Sama untuk Kedua Jenis)
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <h3 class="font-bold text-lg text-gray-800 mb-4 flex items-center">
+                        <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-2 text-sm">
+                            <i class="fas fa-male"></i>
+                        </span>
+                        Calon Suami
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>KTP Elektronik (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Kartu Keluarga (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Akta Kelahiran (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Pas foto 3x4 (4 lembar, latar biru)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Surat izin orang tua (jika &lt; 21 tahun)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <h3 class="font-bold text-lg text-gray-800 mb-4 flex items-center">
+                        <span class="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mr-2 text-sm">
+                            <i class="fas fa-female"></i>
+                        </span>
+                        Calon Istri
+                    </h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>KTP Elektronik (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Kartu Keluarga (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Akta Kelahiran (asli & fotokopi)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Pas foto 3x4 (4 lembar, latar biru)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span>Surat izin orang tua (jika &lt; 21 tahun)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                <h4 class="font-bold text-yellow-800 mb-2">
+                    <i class="fas fa-plus-circle mr-2"></i>
+                    Dokumen Tambahan (jika diperlukan)
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-yellow-700">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-certificate"></i>
+                        <span>Surat Cerai (duda/janda)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Surat Keterangan Sehat</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-id-badge"></i>
+                        <span>Surat Keterangan Status</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keuntungan & Pertimbangan -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="bg-blue-50 rounded-2xl p-6 border-2 border-blue-200">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <i class="fas fa-thumbs-up mr-2"></i>
+                    Keuntungan Nikah di Balai
+                </h3>
+                <ul class="space-y-3 text-sm text-blue-700">
+                    <li class="flex items-start gap-2">
+                                                <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Biaya Gratis</strong> - Tidak perlu memikirkan biaya nikah</span>
+                    </li>
+
+                                            <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Proses cepat</strong> - Tidak perlu koordinasi transportasi penghulu</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Jadwal pasti</strong> - Lebih mudah mendapat jadwal</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Sah secara hukum</strong> - Sama validnya dengan luar balai</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-pink-50 rounded-2xl p-6 border-2 border-pink-200">
+                <h3 class="text-xl font-bold text-pink-800 mb-4 flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    Keuntungan Nikah Luar Balai
+                </h3>
+                <ul class="space-y-3 text-sm text-pink-700">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Fleksibel</strong> - Bisa di rumah, hotel, atau gedung pilihan</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Kapasitas besar</strong> - Tidak terbatas ruang KUA</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Dekorasi bebas</strong> - Sesuaikan dengan tema pernikahan</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle mt-1"></i>
+                        <span><strong>Kenyamanan</strong> - Tidak perlu antre di KUA</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Prosedur Pembayaran PNBP -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-money-check-alt text-green-600 mr-3"></i>
+                Cara Pembayaran PNBP Rp 600.000 (Nikah Luar Balai)
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 rounded-xl p-5 text-center card-hover">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl font-bold text-green-600">1</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Datang ke KUA</h4>
+                    <p class="text-sm text-gray-600">Ajukan permohonan nikah luar balai dan dapatkan kode billing PNBP</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-5 text-center card-hover">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl font-bold text-green-600">2</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Bayar ke Kas Negara</h4>
+                    <p class="text-sm text-gray-600">Via bank/pos/online ke rekening kas negara dengan kode billing</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-5 text-center card-hover">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl font-bold text-green-600">3</span>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Validasi Pembayaran</h4>
+                    <p class="text-sm text-gray-600">Validasi pembayaran di aplikasi SIMKAH atau serahkan bukti ke KUA</p>
+                </div>
+            </div>
+
+            <div class="mt-6 info-box rounded-xl p-4">
+                <h4 class="font-bold text-blue-800 mb-2">
+                    <i class="fas fa-university mr-2"></i>
+                    Rekening Tujuan Pembayaran
+                </h4>
+                <p class="text-sm text-blue-700 mb-2">
+                    PNBP dikelola oleh Kementerian Keuangan. Jangan transfer ke rekening pribadi!
+                </p>
+                <ul class="text-sm text-blue-700 space-y-1">
+                    <li>• Bank BNI, BRI, Mandiri, BTN</li>
+                    <li>• Kantor Pos Indonesia</li>
+                    <li>• Aplikasi Sakti (pemerintah)</li>
+                    <li>• e-Billing pajak.go.id</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kontak Pengaduan -->
+        <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl shadow-lg p-8 text-white mb-10">
+            <h2 class="text-2xl font-bold mb-6 text-center">Laporkan Pungutan Liar!</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white/10 rounded-xl p-4 backdrop-blur">
+                    <i class="fas fa-phone-alt text-3xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Call Center</h4>
+                    <p class="text-2xl font-bold">152</p>
+                    <p class="text-sm opacity-90">Tarif lokal</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 backdrop-blur">
+                    <i class="fas fa-globe text-3xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Website</h4>
+                    <p class="text-lg font-semibold">wbs.kemenag.go.id</p>
+                    <p class="text-sm opacity-90">Whistle Blowing System</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 backdrop-blur">
+                    <i class="fas fa-envelope text-3xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Email</h4>
+                    <p class="text-lg font-semibold">wbs@kemenag.go.id</p>
+                    <p class="text-sm opacity-90">Pengaduan online</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm pb-8">
+            <p class="mb-2">Informasi resmi berdasarkan:</p>
+            <p class="mb-1">UU No. 16 Tahun 2019, PMK No. 20 Tahun 2019, PP No. 47 Tahun 2018</p>
+            <p class="text-xs">© 2024 - Kementerian Agama Republik Indonesia</p>
+        </footer>
+
+
+    <script>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover, .step-card').forEach((card, index) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = `all 0.6s ease ${index * 0.05}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
